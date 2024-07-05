@@ -1,8 +1,10 @@
 import numpy as np
 import cv2
+import time
 
 palette = (2 ** 11 - 1, 2 ** 15 - 1, 2 ** 20 - 1)
 
+face_list = set()
 
 def compute_color_for_labels(label):
     """
@@ -27,7 +29,14 @@ def draw_boxes(img, bbox, identities=None, offset=(0,0)):
         cv2.rectangle(img,(x1, y1),(x2,y2),color,3)
         cv2.rectangle(img,(x1, y1),(x1+t_size[0]+3,y1+t_size[1]+4), color,-1)
         cv2.putText(img,label,(x1,y1+t_size[1]+4), cv2.FONT_HERSHEY_PLAIN, 2, [255,255,255], 2)
+
+        # if(id not in face_list):
+        #     face_list.add(id)
+        #     cv2.imwrite('output/img/'+str(id)+'.jpg', img=img)
+        #     print('face reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+
     return img
+
 
 
 
