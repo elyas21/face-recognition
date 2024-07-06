@@ -1,5 +1,6 @@
 import redis
 import cv2
+import time
 face_list = set()
 
 def save_img(img, bbox, identities=None, offset=(0,0)):
@@ -15,16 +16,10 @@ def save_img(img, bbox, identities=None, offset=(0,0)):
 
     return img
 
-# def saveToDB():
-#     r = redis.Redis(
-#     host='redis-16109.c328.europe-west3-1.gce.redns.redis-cloud.com',
-#     port=16109,
-#     password='----')
-    
-#     r.set('name','elyas')
-#     print(r.get('name'))
-#     r.set('name','elyasss')
-#     print(r.get('name'))
+def saveToRedis(id,r,name):
+    getPath = str(str(time.time()))[:9]+str(id)
+    r.set(getPath,name)
+
 
     
 # if __name__=='__main__':

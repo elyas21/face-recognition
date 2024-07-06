@@ -2,6 +2,7 @@ legacy/*
 .DS_Store
 debug/*
 *.DS_Store
+output/*
 *.mat
 preds/*
 *.h5
